@@ -24,7 +24,8 @@ export const getHistory = (request: unknown, response: unknown) => {
 		} else {
 			return res.status(500).send({ message: 'Данные не найдены' })
 		}
-	}).catch(() => {
+	}).catch((err) => {
+		console.log(err.message)
 		return res.status(500).send({ message: 'Не удалось получить историю пользователя' })
 	})
 }
@@ -48,7 +49,8 @@ export const logEvent = (request: unknown, response: unknown) => {
 		} else {
 			return res.status(500).send({ message: 'Не удалось добавить запись в историю действий пользователя' })
 		}
-	}).catch(() => {
+	}).catch((err) => {
+		console.log(err.message)
 		return res.status(500).send({ message: 'Не удалось добавить запись в историю действий пользователя' })
 	})
 }

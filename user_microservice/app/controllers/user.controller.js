@@ -1,4 +1,4 @@
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 const db = require("../models");
 const historyService = require("../config/bridge");
 const User = db.user;
@@ -67,7 +67,8 @@ exports.update = (req, res) => {
 
 				return res.status(200).send({ message: 'Данные пользователя изменены' });
 
-		}}).catch(() => {
+		}}).catch((err) => {
+			console.log(err.message);
 			return res.status(500).send({ message: 'При изменении произошла ошибка' });
 		})
 }
@@ -84,7 +85,8 @@ exports.getUserList = (req, res) => {
 
 			} else {
 				return res.status(200).send({ message: 'Список пользователей пуст' });
-			}}).catch(() => {
+			}}).catch((err) => {
+				console.log(err.message);
 				return res.status(500).send({ message: 'Произошла ошибка' });
 			})
 }
