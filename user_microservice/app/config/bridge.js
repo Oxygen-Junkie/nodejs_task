@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const baseURL = "http://localhost:8082/"
+const baseURL = `http://${process.env.HISTORY_DOMAIN}:${process.env.HISTORY_PORT}/`
 
 exports.logEvent = async (id, login, event) => {
     const response = await fetch(baseURL + 'history/', {
