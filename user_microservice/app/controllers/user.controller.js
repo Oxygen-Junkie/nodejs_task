@@ -63,7 +63,7 @@ exports.update = (req, res) => {
 
 				user.update(userData);
 
-				historyService.postData(user.id, user.id, actionName);
+				historyService.postData(user.id, user.login, actionName);
 
 				return res.status(200).send({ message: 'Данные пользователя изменены' });
 
